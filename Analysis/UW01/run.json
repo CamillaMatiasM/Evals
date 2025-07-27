@@ -1,0 +1,18 @@
+{
+  "model": "gpt-4",
+  "max_samples": 50,
+  "temperature": 0.3,
+  "max_tokens": 500,
+  "seed": 123,
+  "run_config": {
+    "parallel_runs": 2,
+    "timeout_seconds": 600,
+    "retry_attempts": 2
+  },
+  "evaluation_settings": {
+    "record_raw_completions": true,
+    "record_sampling_details": false,
+    "include_usage_stats": true
+  }
+}
+

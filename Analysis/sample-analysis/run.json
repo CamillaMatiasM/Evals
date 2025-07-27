@@ -1,0 +1,14 @@
+{"name": "Sample Analysis Run",
+    "data_source": {
+        "type": "completions",
+        "model": "gpt-4.1",
+        "input_messages": {
+            "type": "template",
+            "template": [
+                { "role": "developer", "content": "You are an expert in categorizing IT support tickets. Given the support ticket below, categorize the request into one of 'Hardware', 'Software', or 'Other'. Respond with only one of those words." },
+                { "role": "user", "content": "{{ item.ticket_text }}" }
+            ]
+        },
+    "source": { "type": "file_id", "id": "YOUR_FILE_ID" }
+    }
+}

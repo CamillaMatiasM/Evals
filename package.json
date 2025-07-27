@@ -1,0 +1,20 @@
+{
+  "name": "evalproject",
+  "version": "1.0.0",
+  "description": "OpenAI Evaluation System with structured analysis folders",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node example.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["openai", "nodejs", "postgresql", "prisma", "evaluation", "evals"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "openai": "^4.80.0",
+    "prisma": "^6.2.0",
+    "@prisma/client": "^6.2.0"
+  }
+}
