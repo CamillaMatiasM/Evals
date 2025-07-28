@@ -7,16 +7,10 @@ import openai from '../openai-config.js';
  */
 export async function create(config) {
   try {
-    console.log('Creating OpenAI eval with config:', JSON.stringify(config, null, 2));
-    
     // Create the eval using OpenAI Evals API
-    const evaluation = await openai.evals.create({
-      name: config.name,
-      data_source_config: config.data_source_config,
-      testing_criteria: config.testing_criteria
-    });
+    const evaluation = await openai.evals.create(config);
 
-    console.log(`✅ Eval created successfully with ID: ${evaluation.id}`);
+    console.log(`✅ Eval created successfully: ${JSON.stringify(evaluation, null, 2)}`);
     return evaluation.id;
 
   } catch (error) {

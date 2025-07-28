@@ -17,8 +17,8 @@
       "type": "string_check",
       "name": "Match output to expected answer",
       "input": "{{ sample.output_text }}",
-      "operation": "contains",
+      "operation": "eq",
       "reference": "{{ item.expected }}"
     }
   ]
-} 
+}

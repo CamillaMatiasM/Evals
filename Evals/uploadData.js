@@ -8,8 +8,6 @@ import fs from 'fs';
  */
 export async function uploadData(dataFilePath) {
   try {
-    console.log(`📁 Uploading data from: ${dataFilePath}`);
-    
     // Check if file exists
     if (!fs.existsSync(dataFilePath)) {
       throw new Error(`Data file not found: ${dataFilePath}`);
@@ -27,7 +25,7 @@ export async function uploadData(dataFilePath) {
       purpose: 'evals'
     });
 
-    console.log(`✅ Data uploaded successfully with ID: ${file.id}`);
+    console.log(`✅ Data uploaded successfully: ${file}`);
     return file.id;
 
   } catch (error) {

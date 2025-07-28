@@ -1,5 +1,5 @@
-{"input": "How do I learn programming?", "expected": "Start with basics like variables and functions"}
-{"input": "What is machine learning?", "expected": "ML is a subset of AI that learns from data"}
-{"input": "How to stay motivated?", "expected": "Set small goals and celebrate progress"}
-{"input": "Best practices for coding?", "expected": "Write clean, readable code with good comments"}
-{"input": "How to debug code?", "expected": "Use debugger tools and print statements"} 
+{"item":{"input": "How do I learn programming?", "expected": "Start with basics like variables and functions"}}
+{"item":{"input": "What is machine learning?", "expected": "ML is a subset of AI that learns from data"}}
+{"item":{"input": "How to stay motivated?", "expected": "Set small goals and celebrate progress"}}
+{"item":{"input": "Best practices for coding?", "expected": "Write clean, readable code with good comments"}}
+{"item":{"input": "How to debug code?", "expected": "Use debugger tools and print statements"}} 
