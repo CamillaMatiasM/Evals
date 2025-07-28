@@ -1,0 +1,24 @@
+{
+  "name": "BlueCognition01",
+  "data_source_config": {
+    "type": "custom",
+    "item_schema": {
+      "type": "object",
+      "properties": {
+        "input": { "type": "string" },
+        "score": { "type": "string" }
+      },
+      "required": ["input", "score"]
+    },
+    "include_sample_schema": true
+  },
+  "testing_criteria": [
+    {
+      "type": "string_check",
+      "name": "Score matches",
+      "input": "{{ sample.output_json.score }}",
+      "operation": "eq",
+      "reference": "{{ item.score }}"
+    }
+  ]
+}
