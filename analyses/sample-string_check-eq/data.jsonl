@@ -1,0 +1,5 @@
+{"item": {"input": "How do I learn programming?", "expected": "YES"}}
+{"item": {"input": "What is machine learning?", "expected": "YES"}}
+{"item": {"input": "How to stay motivated?", "expected": "NO"}}
+{"item": {"input": "Best practices for coding?", "expected": "YES"}}
+{"item": {"input": "How to debug code?", "expected": "YES"}}

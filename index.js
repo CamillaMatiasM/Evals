@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import readline from "readline";
-import prisma from "./db.js";
+import prisma from "./utils/db.js";
 import { create } from "./Evals/create.js";
 import { uploadData } from "./Evals/uploadData.js";
 import { run } from "./Evals/run.js";
@@ -43,33 +43,33 @@ async function main() {
 
 async function runEval() {
   try {
-    // Get all folders in Analysis directory
-    const analysisPath = "./Analysis";
-    if (!fs.existsSync(analysisPath)) {
+    // Get all folders in analyses directory
+    const analysesPath = "./analyses";
+    if (!fs.existsSync(analysesPath)) {
       throw new Error(
-        "Analysis folder not found. Please create analysis configurations first."
+        "analyses folder not found. Please create analyses configurations first."
       );
     }
 
     const folders = fs
-      .readdirSync(analysisPath)
+      .readdirSync(analysesPath)
       .filter((item) =>
-        fs.statSync(path.join(analysisPath, item)).isDirectory()
+        fs.statSync(path.join(analysesPath, item)).isDirectory()
       );
 
     if (folders.length === 0) {
-      throw new Error("No analysis folders found in ./Analysis directory.");
+      throw new Error("No analyses folders found in ./analyses directory.");
     }
 
     // Display available folders
-    console.log("📁 Available analysis folders:");
+      console.log("📁 Available analyses folders:");
     folders.forEach((folder, index) => {
       console.log(`${index + 1}. ${folder}`);
     });
 
     // Ask user to choose a folder
     const choice = await question(
-      "\nWhich analysis would you like to run? (enter number): "
+      "\nWhich analyses would you like to run? (enter number): "
     );
     const selectedIndex = parseInt(choice) - 1;
 
@@ -98,7 +98,7 @@ async function runEval() {
       console.log(`📝 Created new eval record for: ${selectedFolder}`);
     }
 
-    const folderPath = path.join(analysisPath, selectedFolder);
+    const folderPath = path.join(analysesPath, selectedFolder);
 
     // Validate required files exist
     const requiredFiles = [

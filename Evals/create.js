@@ -1,4 +1,4 @@
-import openai from '../openai-config.js';
+import openai from '../utils/openai-config.js';
 
 /**
  * Creates an OpenAI eval using configuration from create.json

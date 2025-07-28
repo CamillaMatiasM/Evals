@@ -1,4 +1,4 @@
-import openai from '../openai-config.js';
+import openai from '../utils/openai-config.js';
 import fs from 'fs';
 
 /**
