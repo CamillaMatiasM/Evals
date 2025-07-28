@@ -28,7 +28,7 @@ export async function run(promptFilePath, evalId, dataId, runConfigPath) {
 
     // Create evaluation run using the platform API
     const evalRun = await openai.evals.runs.create(evalId, {
-      name: runConfig.name,
+      ...runConfig,
       data_source: {
         type: runConfig.data_source.type,
         model: runConfig.data_source.model,
@@ -44,55 +44,7 @@ export async function run(promptFilePath, evalId, dataId, runConfigPath) {
     });
 
     console.log(`✅ Eval run started with ID: ${evalRun.id}`);
-
-    // // Poll for completion
-    // let runStatus = evalRun;
-    // let attempts = 0;
-    // const maxAttempts = 60; // 10 minutes max wait time
-
-    // while (
-    //   (runStatus.status === "running" || runStatus.status === "queued") &&
-    //   attempts < maxAttempts
-    // ) {
-    //   console.log(
-    //     `⏳ Status: ${runStatus.status}... waiting 10 seconds (attempt ${
-    //       attempts + 1
-    //     }/${maxAttempts})`
-    //   );
-    //   await new Promise((resolve) => setTimeout(resolve, 10000));
-
-    //   runStatus = await openai.evals.runs.retrieve(evalRun.id);
-    //   attempts++;
-    // }
-
-    // if (attempts >= maxAttempts) {
-    //   throw new Error("Evaluation timed out after 10 minutes");
-    // }
-
-    // console.log(`🏁 Eval completed with status: ${runStatus.status}`);
-
-    // // Return the results
-    // const result = {
-    //   runId: evalRun.id,
-    //   evalId: evalId,
-    //   datasetId: dataId,
-    //   status: runStatus.status,
-    //   results: runStatus.results || {},
-    //   metrics: runStatus.metrics || {},
-    //   completedAt: runStatus.completed_at || new Date().toISOString(),
-    //   samples_processed: runStatus.samples_processed || 0,
-    //   total_samples: runStatus.total_samples || 0,
-    // };
-
-    // console.log("📊 Results Summary:");
-    // console.log(`   Status: ${result.status}`);
-    // console.log(
-    //   `   Samples: ${result.samples_processed}/${result.total_samples}`
-    // );
-    // console.log(`   Metrics: ${JSON.stringify(result.metrics, null, 2)}`);
-
-    console.log(evalRun);
-
+    
     return evalRun;
   } catch (error) {
     console.error("❌ Error running eval:", error);

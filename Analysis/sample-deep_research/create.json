@@ -1,0 +1,24 @@
+{
+  "name": "deep-research",
+  "data_source_config": {
+    "type": "custom",
+    "item_schema": {
+      "type": "object",
+      "properties": {
+        "input": { "type": "string" },
+        "expected": { "type": "string" }
+      },
+      "required": ["input", "expected"]
+    },
+    "include_sample_schema": true
+  },
+  "testing_criteria": [
+    {
+      "type": "string_check",
+      "name": "Score matches expected",
+      "input": "{{ sample.output_json.score }}",
+      "operation": "eq",
+      "reference": "{{ item.expected }}"
+    }
+  ]
+}

@@ -122,7 +122,10 @@ async function runEval() {
       const createConfig = JSON.parse(
         fs.readFileSync(createConfigPath, "utf8")
       );
-      const evalId = await create(createConfig);
+      const evalId = await create({
+        ...createConfig,
+        name: selectedFolder,
+      });
 
       // Update database with eval_ID
       /**

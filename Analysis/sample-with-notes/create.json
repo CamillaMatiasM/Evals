@@ -1,0 +1,28 @@
+{
+  "name": "sample-analysis",
+  "data_source_config": {
+    "type": "custom",
+    "item_schema": {
+      "type": "object",
+      "properties": {
+        "input": { "type": "string" },
+        "expected": { "type": "string" }
+      },
+      "required": ["input", "expected"]
+    },
+    "include_sample_schema": true
+  },
+  "testing_criteria": [ // list of graders for all eval runs in this group
+  // Graders can reference variables in the data source using double curly braces notation
+  // to reference the model's output, use the sample namespace
+  {
+      // Grader type: string_check, ...
+      // label_model...
+      "type": "string_check", // string_check, number_check, boolean_check, object_check, array_check
+      "name": "Match output to expected answer",
+      "input": "{{ sample.output_text }}",
+      "operation": "eq",
+      "reference": "{{ item.expected }}"
+    }
+  ]
+}

@@ -5,8 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node example.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "syncNewDB": "npx prisma db push",
+    "migrateDB": "npx prisma migrate dev",
+    "seeDB": "npx prisma studio",
+    "updateGit": "git add . && git commit -m 'update' && git push"
   },
   "keywords": ["openai", "nodejs", "postgresql", "prisma", "evaluation", "evals"],
   "author": "",

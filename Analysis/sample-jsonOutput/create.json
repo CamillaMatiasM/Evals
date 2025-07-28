@@ -16,7 +16,7 @@
     {
       "type": "string_check",
       "name": "Match output to expected answer",
-      "input": "{{ sample.output_text }}",
+      "input": "{{ sample.output_json.direct }}",
       "operation": "eq",
       "reference": "{{ item.expected }}"
     }

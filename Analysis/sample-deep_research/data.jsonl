@@ -1,0 +1,2 @@
+{"item": {"input": "Review the financial health of Company A based on the provided report.", "expected": "4"}}
+{"item": {"input": "Analyze Company B's performance last quarter.", "expected": "3"}}
